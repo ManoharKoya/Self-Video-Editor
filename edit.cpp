@@ -7,8 +7,7 @@ int main(){
 	cout<<"\t press - 1 to trim.\n";
 	cout<<"\t press - 2 to join.\n";
 	cout<<"\t press - 3 to add other audio stream.\n";
-	cout<<"\t press - 4 to remove audio stream.\n";
-	cout<<"\t press - 5 to random edit.\n";
+	cout<<"\t press - 4 to rotate video continously.\n";
 	int q; cin>>q;
 	if(q==1) {
 		cout<<"Enter path of file to trim : ";
@@ -16,7 +15,9 @@ int main(){
 		cout<<"Enter starting point and trim lengt (both in sec): ";
 		int l,s; cin>>s>>l;
 		// cout<<l<<' '<<s<<'\n';
-		string L, S;
+		string L, S, OutName;
+		cout<<"Enter output file name : ";
+		cin>>OutName;
 		stringstream ss,ss1;
 		ss<<l; ss>>L; // converting int 'l' to string.
 		ss1<<s; ss1>>S; // converting int 's' to string.
@@ -25,6 +26,7 @@ int main(){
 		cmd += " ";
 		cmd += L; // cout<<cmd<<'\n';
 		cmd += " "; cmd += file;
+		cmd += " "; cmd += OutName;
 		char char_cmd[cmd.length()];
 		strcpy(char_cmd, cmd.c_str());
 		// cout<<cmd<<'\n';
@@ -56,6 +58,9 @@ int main(){
 		char char_cmd[s.length()];
                 strcpy(char_cmd, s.c_str());
                 system(char_cmd);
+	}
+	else if(q==4){
+		system("rotCont");
 	}
 	return 0;
 }
