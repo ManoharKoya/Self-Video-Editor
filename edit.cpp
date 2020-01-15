@@ -8,13 +8,13 @@ int main(){
 	cout<<"\t press - 2 to join.\n";
 	cout<<"\t press - 3 to add other audio stream.\n";
 	cout<<"\t press - 4 to rotate video continously.\n";
+	cout<<"\t press - 5 to make Start video Animation.\n";
 	int q; cin>>q;
 	if(q==1) {
 		cout<<"Enter path of file to trim : ";
 		string file; cin>>file;
 		cout<<"Enter starting point and trim lengt (both in sec): ";
 		int l,s; cin>>s>>l;
-		// cout<<l<<' '<<s<<'\n';
 		string L, S, OutName;
 		cout<<"Enter output file name : ";
 		cin>>OutName;
@@ -29,10 +29,6 @@ int main(){
 		cmd += " "; cmd += OutName;
 		char char_cmd[cmd.length()];
 		strcpy(char_cmd, cmd.c_str());
-		// cout<<cmd<<'\n';
-		// pass l, s to trim.bat as parameters.
-		// for(int i=0;i<cmd.length();++i) cout<<char_cmd[i]<<' ';
-		// cout<<'\n';
 		system(char_cmd);
 	}
 	else if(q==2){
@@ -61,6 +57,9 @@ int main(){
 	}
 	else if(q==4){
 		system("rotCont");
+	}
+	else if(q==5){
+		system("StartAnimation");
 	}
 	return 0;
 }
